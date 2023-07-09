@@ -1,0 +1,188 @@
+💡Q1.1. Write a program to show Interface Example in java?
+// Define the interface
+interface Vehicle {
+    void start();
+    void stop();
+}
+
+// Implement the interface
+class Car implements Vehicle {
+    @Override
+    public void start() {
+        System.out.println("Car started");
+    }
+
+    @Override
+    public void stop() {
+        System.out.println("Car stopped");
+    }
+}
+
+// Implement the interface
+class Motorcycle implements Vehicle {
+    @Override
+    public void start() {
+        System.out.println("Motorcycle started");
+    }
+
+    @Override
+    public void stop() {
+        System.out.println("Motorcycle stopped");
+    }
+}
+
+// Main class to demonstrate the usage
+public class InterfaceExample {
+    public static void main(String[] args) {
+        Vehicle car = new Car();
+        car.start();
+        car.stop();
+
+        Vehicle motorcycle = new Motorcycle();
+        motorcycle.start();
+        motorcycle.stop();
+    }
+}
+=========================================================================================================================================================
+💡 Q2.Write a program a Program with 2 concrete method and 2 abstract method in java ?
+abstract class Shape {
+    // Abstract methods
+    public abstract double calculateArea();
+    public abstract double calculatePerimeter();
+
+    // Concrete methods
+    public void display() {
+        System.out.println("This is a shape.");
+    }
+
+    public void printDetails() {
+        System.out.println("Area: " + calculateArea());
+        System.out.println("Perimeter: " + calculatePerimeter());
+    }
+}
+
+class Circle extends Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+
+    @Override
+    public double calculatePerimeter() {
+        return 2 * Math.PI * radius;
+    }
+}
+
+class Rectangle extends Shape {
+    private double length;
+    private double width;
+
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    @Override
+    public double calculateArea() {
+        return length * width;
+    }
+
+    @Override
+    public double calculatePerimeter() {
+        return 2 * (length + width);
+    }
+}
+
+public class AbstractExample {
+    public static void main(String[] args) {
+        Circle circle = new Circle(5);
+        circle.display();
+        circle.printDetails();
+
+        Rectangle rectangle = new Rectangle(4, 6);
+        rectangle.display();
+        rectangle.printDetails();
+    }
+}
+=======================================================================================================================================================
+💡 Q3.Write a program  to show the use of functional interface in java?
+
+// Define a functional interface
+@FunctionalInterface
+interface Calculator {
+    int calculate(int a, int b);
+}
+
+public class FunctionalInterfaceExample {
+    public static void main(String[] args) {
+        // Create lambda expressions using the functional interface
+        Calculator addition = (a, b) -> a + b;
+        Calculator subtraction = (a, b) -> a - b;
+        Calculator multiplication = (a, b) -> a * b;
+
+        // Use lambda expressions to perform calculations
+        int result1 = addition.calculate(5, 3);
+        int result2 = subtraction.calculate(10, 4);
+        int result3 = multiplication.calculate(6, 2);
+
+        // Display the results
+        System.out.println("Addition: " + result1);
+        System.out.println("Subtraction: " + result2);
+        System.out.println("Multiplication: " + result3);
+    }
+}
+
+=======================================================================================================================================================
+💡 Q4.What is an interface in Java?
+In Java, an interface is a blueprint of a class. It defines a contract that a class must adhere to by specifying a set
+of methods that the class should implement
+=======================================================================================================================================================
+💡 Q5.What is the use of interface in Java?
+Abstraction: Interfaces allow you to define a contract that a class must adhere to without 
+specifying the implementation details. By using interfaces, you can abstract away the implementation details and focus
+on the behaviors and functionalities that a class should provide. This promotes code modularity and separation of concerns.
+
+API Design: Interfaces are commonly used to design APIs (Application Programming Interfaces). When you define an interface,
+you create a clear and standardized way for other developers to interact with your code. Interfaces provide a well-defined 
+set of methods that users of your code can rely on, ensuring consistency and ease of use.
+=======================================================================================================================================================
+💡 Q6.What is the lambda expression of Java 8?
+In Java 8, lambda expressions were introduced as a new feature to provide a concise and functional programming style.
+A lambda expression is an anonymous function that can be used to represent a method implementation in a more compact and expressive way.
+======================================================================================================================================================
+💡 Q7.Can you pass lambda expressions to a method? When?
+Yes, lambda expressions can be passed as arguments to methods in Java.
+This feature is particularly useful when working with functional interfaces, as lambda expressions can provide
+the implementation for the abstract method of the functional interface.
+=======================================================================================================================================================
+💡 Q8.What is the functional interface in Java 8?
+
+In Java 8, a functional interface is an interface that has exactly one abstract method.
+It is also known as a Single Abstract Method (SAM) interface. Functional interfaces are a fundamental concept
+in Java 8's functional programming paradigm.
+=======================================================================================================================================================
+
+💡 Q9.What is the benefit of lambda expressions in Java 8?
+Concise Syntax: Lambda expressions allow you to write more compact code compared to traditional anonymous inner classes.
+They eliminate the need to define a separate class for simple implementations, reducing code verbosity and improving code clarity.
+
+Readability: Lambda expressions enhance code readability by focusing on the essential logic or behavior being implemented.
+They remove unnecessary ceremony and boilerplate code, making the code more expressive and easier to understand.
+
+Functional Programming: Lambda expressions enable a more functional programming style in Java.
+They support the use of functional interfaces, allowing you to treat behaviour as data. 
+This functional programming paradigm promotes code modularity, composability, and reusability.
+=======================================================================================================================================================
+💡 Q10.Is it mandatory for a lambda expression to have parameters?
+No, it is not mandatory for a lambda expression to have parameters.
+Whether or not a lambda expression includes parameters depends on the specific context and requirements of its usage.
+
+Lambda expressions can have zero or more parameters, and the presence or absence of parameters depends
+on the functional interface that the lambda expression is intended to implement.
+======================================================================================================================================================
